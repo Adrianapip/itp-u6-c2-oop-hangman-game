@@ -29,6 +29,13 @@ class GuessWord(object):
 
 
     def perform_attempt(self, char):
+        har = char.lower()
+        if len(char) > 1:
+           raise InvalidGuessedLetterException() 
+           
+        if char.lower() not in self.answer:
+            return GuessAttempt(char, miss=True)
+        
         
         for c in self.answer:
 #            if c not in previous_guesses:
@@ -64,8 +71,6 @@ class HangmanGame(object):
         
     def is_finished(self):
         return self.is_won() or self.is_lost()
-
-    
     
     
     @classmethod
