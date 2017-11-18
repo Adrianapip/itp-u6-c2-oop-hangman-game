@@ -40,7 +40,7 @@ class GuessWord(object):
         for c in self.answer:
 #            if c not in previous_guesses:
 #                previous_guesses.append(c)
-            if char == c:
+            if char.lower() == c:
                 list_c = [i for i, char in enumerate(self.answer) if char == c]
                 for i in list_c:
                     self.masked = self.masked[:i] + c + self.masked[i + 1:]
